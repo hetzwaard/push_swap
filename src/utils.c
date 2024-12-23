@@ -12,6 +12,28 @@
 
 #include "../include/push_swap.h"
 
+void	is_duplicated(t_stack *stack)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < stack->size)
+	{
+		j = i + 1;
+		while (j < stack->size)
+		{
+			if (stack->arr[i] == stack->arr[j])
+			{
+				write(2, "Error\n", 6);
+				exit(EXIT_FAILURE);
+			}
+			j++;
+		}
+		i++;
+	}
+}
+
 void	error_exit(t_stack *a, t_stack *b)
 {
 	write(2, "Error\n", 6);
@@ -19,50 +41,40 @@ void	error_exit(t_stack *a, t_stack *b)
 	exit(EXIT_FAILURE);
 }
 
-void	print_operation(char *op)
+void	free_stacks(t_stack *a, t_stack *b)
 {
-	write(1, op, ft_strlen(op));
-	write(1, "\n", 1);
+	if (a->arr)
+		free(a->arr);
+	if (b->arr)
+		free(b->arr);
 }
 
-size_t	ft_strlen(const char *s)
-
-{
-	size_t	i;
-
-	i = 0;
-	while (*s != '\0')
-	{
-		i++;
-		s++;
-	}
-	return (i);
-}
-
-int	ft_atoi(const char *nptr)
+void	validate_and_fill_stack(t_stack *stack, int argc, char **argv)
 {
 	int	i;
-	int	result;
-	int	sign;
 
-	result = 0;
-	sign = 1;
+	stack->size = argc - 1;
+	stack->arr = malloc(sizeof(int) * stack->size);
+	if (!stack->arr)
+		error_exit(stack, NULL);
 	i = 0;
-	while (nptr[i] == ' ' || nptr[i] == '\t'
-		|| nptr[i] == '\n' || nptr[i] == '\v'
-		|| nptr[i] == '\f' || nptr [i] == '\r')
-		i++;
-	if (nptr[i] == '-')
+	while (i < stack->size)
 	{
-		sign = -1;
+		stack->arr[i] = ft_atoi(argv[i + 1]);
 		i++;
 	}
-	else if (nptr[i] == '+')
-		i++;
-	while (nptr[i] >= '0' && nptr[i] <= '9')
+}
+
+int	is_sorted(t_stack *stack)
+{
+	int	i;
+
+	i = 1;
+	while (i < stack->size)
 	{
-		result = result * 10 + (nptr[i] - '0');
+		if (stack->arr[i - 1] > stack->arr[i])
+			return (0);
 		i++;
 	}
-	return (result * sign);
+	return (1);
 }

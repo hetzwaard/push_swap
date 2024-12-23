@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.c                                             :+:    :+:            */
+/*   ft_strjoin.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: mahkilic <mahkilic@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2024/12/21 15:46:44 by mahkilic      #+#    #+#                 */
-/*   Updated: 2024/12/21 15:46:44 by mahkilic      ########   odam.nl         */
+/*   Created: 2024/10/22 11:23:15 by mahkilic      #+#    #+#                 */
+/*   Updated: 2024/10/22 11:23:15 by mahkilic      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../include/libft.h"
 
-int	main(int argc, char **argv)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	t_stack a;
-	t_stack b;
+	char	*result;
+	int		i;
+	int		j;
 
-	if (argc < 2)
+	i = 0;
+	j = 0;
+	result = (char *) malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * 1);
+	if (result == 0)
 		return (0);
-	a.arr = NULL;
-	b.arr = NULL;
-	validate_and_fill_stack(&a, argc, argv);
-	b.arr = malloc(sizeof(int) * a.size);
-	if (!b.arr)
-		error_exit(&a, &b);
-	b.size = 0;
-	if (!is_sorted(&a))
-		sort_stack(&a, &b);
-	free_stacks(&a, &b);
-	return (0);
+	while (s1[i])
+		result[j++] = s1[i++];
+	i = 0;
+	while (s2[i])
+		result[j++] = s2[i++];
+	result[j] = 0;
+	return (result);
 }

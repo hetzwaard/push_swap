@@ -1,33 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.c                                             :+:    :+:            */
+/*   ft_putnbr_fd.c                                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: mahkilic <mahkilic@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2024/12/21 15:46:44 by mahkilic      #+#    #+#                 */
-/*   Updated: 2024/12/21 15:46:44 by mahkilic      ########   odam.nl         */
+/*   Created: 2024/10/21 17:45:05 by mahkilic      #+#    #+#                 */
+/*   Updated: 2024/10/21 17:45:05 by mahkilic      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../include/libft.h"
 
-int	main(int argc, char **argv)
+void	ft_putnbr_fd(int nb, int fd)
 {
-	t_stack a;
-	t_stack b;
+	size_t	digit;
 
-	if (argc < 2)
-		return (0);
-	a.arr = NULL;
-	b.arr = NULL;
-	validate_and_fill_stack(&a, argc, argv);
-	b.arr = malloc(sizeof(int) * a.size);
-	if (!b.arr)
-		error_exit(&a, &b);
-	b.size = 0;
-	if (!is_sorted(&a))
-		sort_stack(&a, &b);
-	free_stacks(&a, &b);
-	return (0);
+	if (nb == -2147483648)
+	{
+		write(fd, "-2147483648", 11);
+		return ;
+	}
+	else if (nb < 0)
+	{
+		write(fd, "-", 1);
+		nb = -nb;
+		ft_putnbr_fd(nb, fd);
+		return ;
+	}
+	if (nb >= 10)
+	{
+		ft_putnbr_fd(nb / 10, fd);
+		ft_putnbr_fd(nb % 10, fd);
+	}
+	else
+	{
+		digit = nb + 48;
+		write(fd, &digit, 1);
+		return ;
+	}
 }

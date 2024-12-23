@@ -1,33 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.c                                             :+:    :+:            */
+/*   ft_strnstr.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: mahkilic <mahkilic@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2024/12/21 15:46:44 by mahkilic      #+#    #+#                 */
-/*   Updated: 2024/12/21 15:46:44 by mahkilic      ########   odam.nl         */
+/*   Created: 2024/10/18 21:54:02 by mahkilic      #+#    #+#                 */
+/*   Updated: 2024/10/18 21:54:02 by mahkilic      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../include/libft.h"
 
-int	main(int argc, char **argv)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	t_stack a;
-	t_stack b;
+	size_t	i;
+	size_t	j;
 
-	if (argc < 2)
-		return (0);
-	a.arr = NULL;
-	b.arr = NULL;
-	validate_and_fill_stack(&a, argc, argv);
-	b.arr = malloc(sizeof(int) * a.size);
-	if (!b.arr)
-		error_exit(&a, &b);
-	b.size = 0;
-	if (!is_sorted(&a))
-		sort_stack(&a, &b);
-	free_stacks(&a, &b);
+	i = 0;
+	j = 0;
+	if (little[0] == 0)
+	{
+		return ((char *)big);
+	}
+	while (big[i] && i < len)
+	{
+		while ((big[i + j] == little[j]) && little[j] && (i + j < len))
+			j++;
+		if (little[j] == '\0')
+			return ((char *) big + i);
+		i++;
+		j = 0;
+	}
 	return (0);
 }

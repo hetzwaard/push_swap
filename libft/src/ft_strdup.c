@@ -1,33 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.c                                             :+:    :+:            */
+/*   ft_strdup.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: mahkilic <mahkilic@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2024/12/21 15:46:44 by mahkilic      #+#    #+#                 */
-/*   Updated: 2024/12/21 15:46:44 by mahkilic      ########   odam.nl         */
+/*   Created: 2024/10/21 15:11:22 by mahkilic      #+#    #+#                 */
+/*   Updated: 2024/10/21 15:11:22 by mahkilic      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../include/libft.h"
 
-int	main(int argc, char **argv)
+char	*ft_strdup(const char *s)
 {
-	t_stack a;
-	t_stack b;
+	char	*ns;
+	size_t	len;
 
-	if (argc < 2)
+	len = ft_strlen(s);
+	ns = (char *)malloc(len + 1);
+	if (ns == 0)
 		return (0);
-	a.arr = NULL;
-	b.arr = NULL;
-	validate_and_fill_stack(&a, argc, argv);
-	b.arr = malloc(sizeof(int) * a.size);
-	if (!b.arr)
-		error_exit(&a, &b);
-	b.size = 0;
-	if (!is_sorted(&a))
-		sort_stack(&a, &b);
-	free_stacks(&a, &b);
-	return (0);
+	ft_strlcpy(ns, s, len + 1);
+	return (ns);
 }

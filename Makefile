@@ -10,29 +10,38 @@
 #                                                                              #
 # **************************************************************************** #
 
-SRCS			= src/main.c src/args.c src/utils.c operations/push_operations.c \
-				 operations/reverse_rotate_operations.c operations/rotate_operations.c \
-				 operations/swap_operations.c
+NAME		= push_swap
+LIBFT		= libft/libft.a
 
-OBJS			= $(SRCS:.c=.o)
+SRCS		=	src/main.c src/algorithm.c src/utils.c \
+				operations/push_operations.c operations/swap_operations.c \
+				operations/rotate_operations.c operations/reverse_rotate_operations.c
 
-CC				= cc
-RM				= rm -f
-CFLAGS			= -Wall -Wextra -Werror -I include
+OBJS		= $(SRCS:.c=.o)
 
-NAME			= push_swap
+CC			= cc
+RM			= rm -f
+CFLAGS		= -Wall -Wextra -Werror -I include -I libft/include -fsanitize=address
 
-all:			$(NAME)
+all:		$(LIBFT) $(NAME)
 
-$(NAME):		$(OBJS)
-				$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
+$(LIBFT):
+			make -C libft
+
+$(NAME):	$(OBJS)
+			$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIBFT)
+
+%.o:		%.c
+			$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-				$(RM) $(OBJS)
+			make -C libft clean
+			$(RM) $(OBJS)
 
-fclean:			clean
-				$(RM) $(NAME)
+fclean:		clean
+			make -C libft fclean
+			$(RM) $(NAME)
 
-re:				fclean all
+re:			fclean all
 
-.PHONY:			all clean fclean re
+.PHONY:		all clean fclean re
