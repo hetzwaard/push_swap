@@ -10,7 +10,9 @@
 #                                                                              #
 # **************************************************************************** #
 
-SRCS			= src/main.c src/args.c src/utils.c operations/push_operations.c operations/reverse_rotate_operations.c operations/rotate_operations.c operations/swap_operations.c
+SRCS			= src/main.c src/args.c src/utils.c operations/push_operations.c \
+				 operations/reverse_rotate_operations.c operations/rotate_operations.c \
+				 operations/swap_operations.c
 
 OBJS			= $(SRCS:.c=.o)
 
