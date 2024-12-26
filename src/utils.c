@@ -6,75 +6,29 @@
 /*   By: mahkilic <mahkilic@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/12/21 15:28:48 by mahkilic      #+#    #+#                 */
-/*   Updated: 2024/12/21 15:28:48 by mahkilic      ########   odam.nl         */
+/*   Updated: 2024/12/26 20:43:17 by mahkilic      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	is_duplicated(t_stack *stack)
+long	ft_atol(const char *str)
 {
-	int	i;
-	int	j;
+	long	res;
+	int		sign;
 
-	i = 0;
-	while (i < stack->size)
+	res = 0;
+	sign = 1;
+	while (ft_isspace(*str))
+		str++;
+	if (*str == '-')
+		sign = -1;
+	if (*str == '-' || *str == '+')
+		str++;
+	while (ft_isdigit(*str))
 	{
-		j = i + 1;
-		while (j < stack->size)
-		{
-			if (stack->arr[i] == stack->arr[j])
-			{
-				write(2, "Error\n", 6);
-				exit(EXIT_FAILURE);
-			}
-			j++;
-		}
-		i++;
+		res = res * 10 + *str - '0';
+		str++;
 	}
-}
-
-void	error_exit(t_stack *a, t_stack *b)
-{
-	write(2, "Error\n", 6);
-	free_stacks(a, b);
-	exit(EXIT_FAILURE);
-}
-
-void	free_stacks(t_stack *a, t_stack *b)
-{
-	if (a->arr)
-		free(a->arr);
-	if (b->arr)
-		free(b->arr);
-}
-
-void	validate_and_fill_stack(t_stack *stack, int argc, char **argv)
-{
-	int	i;
-
-	stack->size = argc - 1;
-	stack->arr = malloc(sizeof(int) * stack->size);
-	if (!stack->arr)
-		error_exit(stack, NULL);
-	i = 0;
-	while (i < stack->size)
-	{
-		stack->arr[i] = ft_atoi(argv[i + 1]);
-		i++;
-	}
-}
-
-int	is_sorted(t_stack *stack)
-{
-	int	i;
-
-	i = 1;
-	while (i < stack->size)
-	{
-		if (stack->arr[i - 1] > stack->arr[i])
-			return (0);
-		i++;
-	}
-	return (1);
+	return (res * sign);
 }
