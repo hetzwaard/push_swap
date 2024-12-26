@@ -6,7 +6,7 @@
 /*   By: mahkilic <mahkilic@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/12/21 15:33:39 by mahkilic      #+#    #+#                 */
-/*   Updated: 2024/12/21 15:33:39 by mahkilic      ########   odam.nl         */
+/*   Updated: 2024/12/26 14:11:45 by mahkilic      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	validate_and_fill_stack(t_stack *a, int argc, char **argv)
 		if (!is_valid(argv[i + 1]) || !argv[i + 1][0])
 			error_exit(a, NULL);
 		a->arr[i] = ft_atoi(argv[i + 1]);
-		if (a->arr[i] > INT_MAX || a->arr[i] < INT_MIN)
+		if (a->arr[i] > MAX_INT || a->arr[i] < MIN_INT)
 			error_exit(a, 0);
 		i++;
 	}
