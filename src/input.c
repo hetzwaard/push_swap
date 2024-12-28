@@ -6,7 +6,7 @@
 /*   By: mahkilic <mahkilic@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/12/28 15:57:40 by mahkilic      #+#    #+#                 */
-/*   Updated: 2024/12/28 16:31:48 by mahkilic      ########   odam.nl         */
+/*   Updated: 2024/12/28 21:43:11 by mahkilic      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 static char	*join_args(int argc, char **argv)
 {
 	char	*joined_args;
-	int		i;
 	char	*temp;
+	int		i;
 
 	joined_args = ft_strdup("");
 	i = 1;
@@ -48,14 +48,14 @@ char	**parse_input(int argc, char **argv)
 	{
 		if (!is_numeric(numbers[i]) || check_overflow(numbers[i]))
 		{
-			ft_free_split(numbers);
+			free_split(numbers);
 			print_error();
 		}
 		i++;
 	}
 	if (has_duplicates(numbers))
 	{
-		ft_free_split(numbers);
+		free_split(numbers);
 		print_error();
 	}
 	return (numbers);

@@ -6,7 +6,7 @@
 #    By: mahkilic <mahkilic@student.42.fr>            +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/12/28 16:24:04 by mahkilic      #+#    #+#                  #
-#    Updated: 2024/12/28 16:33:22 by mahkilic      ########   odam.nl          #
+#    Updated: 2024/12/28 23:51:25 by mahkilic      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,16 +16,23 @@ CFLAGS = -Wall -Wextra -Werror
 
 # Directories
 SRCDIR = src
-OBJDIR = objs
+OBJDIR = objects
 INCDIR = includes
 LIBFTDIR = libft
 LIBFT = $(LIBFTDIR)/libft.a
 
 # Source files and object files
-SRCS = $(SRCDIR)/main.c \
-       $(SRCDIR)/input.c \
-       $(SRCDIR)/utils.c \
-       $(SRCDIR)/validation.c
+SRCS =	$(SRCDIR)/main.c \
+			$(SRCDIR)/input.c \
+			$(SRCDIR)/utils.c \
+			$(SRCDIR)/validation.c \
+			$(SRCDIR)/push.c \
+			$(SRCDIR)/swap.c \
+			$(SRCDIR)/rotate.c \
+			$(SRCDIR)/rrotate.c \
+			$(SRCDIR)/sort_five.c \
+			$(SRCDIR)/sort_three.c
+		 
 OBJS = $(SRCS:$(SRCDIR)/%.c=$(OBJDIR)/%.o)
 
 # Output executable

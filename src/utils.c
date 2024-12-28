@@ -6,7 +6,7 @@
 /*   By: mahkilic <mahkilic@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/12/28 16:08:28 by mahkilic      #+#    #+#                 */
-/*   Updated: 2024/12/28 16:19:59 by mahkilic      ########   odam.nl         */
+/*   Updated: 2024/12/28 21:50:26 by mahkilic      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	print_error(void)
 	exit(EXIT_FAILURE);
 }
 
-void	ft_free_split(char **split)
+void	free_split(char **split)
 {
 	int	i;
 
@@ -30,4 +30,29 @@ void	ft_free_split(char **split)
 		i++;
 	}
 	free(split);
+}
+
+t_stack	*init_stack(int size)
+{
+	t_stack	*stack;
+
+	stack = (t_stack *)malloc(sizeof(t_stack));
+	if (!stack)
+		return (NULL);
+	stack->values = (int *)malloc(sizeof(int) * size);
+	if (!stack->values)
+	{
+		free(stack);
+		return (NULL);
+	}
+	stack->size = 0;
+	return (stack);
+}
+
+void	free_stack(t_stack *stack)
+{
+	if (!stack)
+		return ;
+	free(stack->values);
+	free(stack);
 }
