@@ -6,7 +6,7 @@
 /*   By: mahkilic <mahkilic@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/12/30 14:19:16 by mahkilic      #+#    #+#                 */
-/*   Updated: 2025/01/02 01:31:28 by mahkilic      ########   odam.nl         */
+/*   Updated: 2025/01/02 09:10:41 by mahkilic      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main(int argc, char **argv)
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
 		return (1);
 	else if (argc == 2)
-		argv = ft_split(argv[1], ' ');
+		argv = ft_splity(argv[1], ' ');
 	stack_init(&a, argv + 1);
 	if (!stack_sorted(a))
 	{

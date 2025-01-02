@@ -6,7 +6,7 @@
 /*   By: mahkilic <mahkilic@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/12/30 14:16:12 by mahkilic      #+#    #+#                 */
-/*   Updated: 2025/01/02 01:21:19 by mahkilic      ########   odam.nl         */
+/*   Updated: 2025/01/02 09:22:38 by mahkilic      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ typedef struct s_stack
 	struct s_stack	*prev;
 }					t_stack;
 
-// ERROR_FREE & UTILS FUNCTIONS
+// ERROR_FREE
 void				error_free_stack(t_stack **stack);
 void				error_free(t_stack **a);
 int					error_syntax(char *str_nbr);
