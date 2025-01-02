@@ -6,11 +6,36 @@
 /*   By: mahkilic <mahkilic@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/02 01:18:37 by mahkilic      #+#    #+#                 */
-/*   Updated: 2025/01/02 01:20:05 by mahkilic      ########   odam.nl         */
+/*   Updated: 2025/01/02 09:36:29 by mahkilic      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
+
+void	append_node(t_stack **stack, int nbr)
+{
+	t_stack	*node;
+	t_stack	*last_node;
+
+	if (stack == NULL)
+		return ;
+	node = malloc(sizeof(t_stack));
+	if (node == NULL)
+		return ;
+	node->next = NULL;
+	node->value = nbr;
+	if (*stack == NULL)
+	{
+		*stack = node;
+		node->prev = NULL;
+	}
+	else
+	{
+		last_node = find_last_node(*stack);
+		last_node->next = node;
+		node->prev = last_node;
+	}
+}
 
 void	prep_for_push(t_stack **stack, t_stack *top_node, char stack_name)
 {
@@ -33,26 +58,6 @@ void	prep_for_push(t_stack **stack, t_stack *top_node, char stack_name)
 	}
 }
 
-t_stack	*find_highest(t_stack *stack)
-{
-	int		highest;
-	t_stack	*highest_node;
-
-	if (stack == NULL)
-		return (NULL);
-	highest = INT_MIN;
-	while (stack)
-	{
-		if (stack->value > highest)
-		{
-			highest = stack->value;
-			highest_node = stack;
-		}
-		stack = stack->next;
-	}
-	return (highest_node);
-}
-
 bool	stack_sorted(t_stack *stack)
 {
 	if (stack == NULL)
@@ -64,4 +69,19 @@ bool	stack_sorted(t_stack *stack)
 		stack = stack->next;
 	}
 	return (true);
+}
+
+int	stack_len(t_stack *stack)
+{
+	int	count;
+
+	if (stack == NULL)
+		return (0);
+	count = 0;
+	while (stack)
+	{
+		++count;
+		stack = stack->next;
+	}
+	return (count);
 }

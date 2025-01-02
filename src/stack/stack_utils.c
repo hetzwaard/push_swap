@@ -6,7 +6,7 @@
 /*   By: mahkilic <mahkilic@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/12/30 15:27:48 by mahkilic      #+#    #+#                 */
-/*   Updated: 2024/12/30 15:51:06 by mahkilic      ########   odam.nl         */
+/*   Updated: 2025/01/02 09:36:17 by mahkilic      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,29 +21,24 @@ t_stack	*find_last_node(t_stack *head)
 	return (head);
 }
 
-void	append_node(t_stack **stack, int nbr)
+t_stack	*find_highest(t_stack *stack)
 {
-	t_stack	*node;
-	t_stack	*last_node;
+	int		highest;
+	t_stack	*highest_node;
 
 	if (stack == NULL)
-		return ;
-	node = malloc(sizeof(t_stack));
-	if (node == NULL)
-		return ;
-	node->next = NULL;
-	node->value = nbr;
-	if (*stack == NULL)
+		return (NULL);
+	highest = INT_MIN;
+	while (stack)
 	{
-		*stack = node;
-		node->prev = NULL;
+		if (stack->value > highest)
+		{
+			highest = stack->value;
+			highest_node = stack;
+		}
+		stack = stack->next;
 	}
-	else
-	{
-		last_node = find_last_node(*stack);
-		last_node->next = node;
-		node->prev = last_node;
-	}
+	return (highest_node);
 }
 
 t_stack	*find_smallest(t_stack *stack)
@@ -77,19 +72,4 @@ t_stack	*return_cheapest(t_stack *stack)
 		stack = stack->next;
 	}
 	return (NULL);
-}
-
-int	stack_len(t_stack *stack)
-{
-	int	count;
-
-	if (stack == NULL)
-		return (0);
-	count = 0;
-	while (stack)
-	{
-		++count;
-		stack = stack->next;
-	}
-	return (count);
 }
