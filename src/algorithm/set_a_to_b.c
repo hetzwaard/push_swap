@@ -42,13 +42,13 @@ void	set_price(t_stack *a, t_stack *b)
 	len_b = stack_len(b);
 	while (a)
 	{
-		a->push_price = a->current;
+		a->push_price = a->index;
 		if (!(a->above_median))
-			a->push_price = len_a - (a->current);
+			a->push_price = len_a - (a->index);
 		if (a->target->above_median)
-			a->push_price += a->target->current;
+			a->push_price += a->target->index;
 		else
-			a->push_price += len_b - (a->target->current);
+			a->push_price += len_b - (a->target->index);
 		a = a->next;
 	}
 }
@@ -76,26 +76,27 @@ void	set_cheapest(t_stack *stack)
 static void	set_target_a(t_stack *a, t_stack *b)
 {
 	t_stack	*current_b;
-	t_stack	*target;
-	long	best_index;
+	t_stack	*target_node;
+	long	best_match_index;
 
 	while (a)
 	{
-		best_index = LONG_MIN;
+		best_match_index = LONG_MIN;
 		current_b = b;
 		while (current_b)
 		{
-			if (current_b->value > a->value && current_b->value < best_index)
+			if (current_b->value < a->value
+				&& current_b->value > best_match_index)
 			{
-				best_index = current_b->value;
-				target = current_b;
+				best_match_index = current_b->value;
+				target_node = current_b;
 			}
 			current_b = current_b->next;
 		}
-		if (best_index == LONG_MIN)
-			a->target = find_smallest(b);
+		if (best_match_index == LONG_MIN)
+			a->target = find_highest(b);
 		else
-			a->target = target;
+			a->target = target_node;
 		a = a->next;
 	}
 }

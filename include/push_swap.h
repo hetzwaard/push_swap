@@ -22,7 +22,6 @@
 typedef struct s_stack
 {
 	int				value;
-	int				current;
 	int				index;
 	int				push_price;
 	bool			above_median;
@@ -66,8 +65,6 @@ void				prep_for_push(t_stack **stack, t_stack *top_node,
 void				move_a_to_b(t_stack **a, t_stack **b);
 void				move_b_to_a(t_stack **a, t_stack **b);
 void				min_on_top(t_stack **a);
-void				prep_for_push(t_stack **stack, t_stack *top_node,
-						char stack_name);
 bool				stack_sorted(t_stack *stack);
 
 t_stack				*find_highest(t_stack *stack);

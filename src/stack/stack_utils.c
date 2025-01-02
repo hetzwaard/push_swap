@@ -14,21 +14,24 @@
 
 t_stack	*find_last_node(t_stack *head)
 {
+	t_stack	*start;
+
 	if (head == NULL)
 		return (NULL);
-	while (head->next)
+	start = head;
+	while (head->next && head->next != start)
 		head = head->next;
 	return (head);
 }
 
 t_stack	*find_highest(t_stack *stack)
 {
-	int		highest;
+	long	highest;
 	t_stack	*highest_node;
 
 	if (stack == NULL)
 		return (NULL);
-	highest = INT_MIN;
+	highest = LONG_MIN;
 	while (stack)
 	{
 		if (stack->value > highest)
