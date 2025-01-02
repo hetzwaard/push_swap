@@ -29,8 +29,8 @@ SRCS =		$(SRCDIR)/main.c \
 			$(SRCDIR)/error_free.c \
 			$(SRCDIR)/utils.c \
 			$(ALGDIR)/push_swap.c \
-			$(ALGDIR)/set_a_to_b.c \
-			$(ALGDIR)/set_b_to_a.c \
+			$(ALGDIR)/init_nodes_a.c \
+			$(ALGDIR)/init_nodes_b.c \
 			$(ALGDIR)/large_sort.c \
 			$(ALGDIR)/tiny_sort.c \
 			$(INSDIR)/push.c \

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   set_a_to_b.c                                       :+:    :+:            */
+/*   init_nodes_a.c                                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: mahkilic <mahkilic@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
@@ -15,16 +15,16 @@
 void	set_current(t_stack *stack)
 {
 	int	i;
-	int	centerline;
+	int	median;
 
 	i = 0;
-	if (stack == NULL)
+	if (!stack)
 		return ;
-	centerline = stack_len(stack) / 2;
+	median = stack_len(stack) / 2;
 	while (stack)
 	{
 		stack->index = i;
-		if (i < centerline)
+		if (i <= median)
 			stack->above_median = true;
 		else
 			stack->above_median = false;
@@ -101,7 +101,7 @@ static void	set_target_a(t_stack *a, t_stack *b)
 	}
 }
 
-void	set_a_to_b(t_stack *a, t_stack *b)
+void	init_nodes_a(t_stack *a, t_stack *b)
 {
 	set_current(a);
 	set_current(b);

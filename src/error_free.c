@@ -23,7 +23,7 @@ void	error_free_stack(t_stack **stack)
 	while (current)
 	{
 		tmp = current->next;
-		current->next = 0;
+		current->value = 0;
 		free(current);
 		current = tmp;
 	}
@@ -33,7 +33,7 @@ void	error_free_stack(t_stack **stack)
 void	error_free(t_stack **a)
 {
 	error_free_stack(a);
-	ft_putendl_fd("Error", 2);
+	ft_putendl_fd("Error", 1);
 	exit(1);
 }
 

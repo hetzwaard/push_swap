@@ -18,22 +18,18 @@ void	push_swap(t_stack **a, t_stack **b)
 
 	len_a = stack_len(*a);
 	if (len_a-- > 3 && !stack_sorted(*a))
-	{
 		pb(b, a, false);
-	}
 	if (len_a-- > 3 && !stack_sorted(*a))
-	{
 		pb(b, a, false);
-	}
 	while (len_a-- > 3 && !stack_sorted(*a))
 	{
-		set_a_to_b(*a, *b);
+		init_nodes_a(*a, *b);
 		move_a_to_b(a, b);
 	}
 	tiny_sort(a);
 	while (*b)
 	{
-		set_b_to_a(*a, *b);
+		init_nodes_b(*a, *b);
 		move_b_to_a(a, b);
 	}
 	set_current(*a);

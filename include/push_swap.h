@@ -18,6 +18,7 @@
 # include <stdbool.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdio.h>
 
 typedef struct s_stack
 {
@@ -47,8 +48,8 @@ t_stack				*find_smallest(t_stack *stack);
 t_stack				*return_cheapest(t_stack *stack);
 
 // SET_NODES FUNCTIONS
-void				set_a_to_b(t_stack *a, t_stack *b);
-void				set_b_to_a(t_stack *a, t_stack *b);
+void				init_nodes_a(t_stack *a, t_stack *b);
+void				init_nodes_b(t_stack *a, t_stack *b);
 void				set_current(t_stack *stack);
 void				set_price(t_stack *a, t_stack *b);
 void				set_cheapest(t_stack *b);
@@ -65,6 +66,8 @@ void				prep_for_push(t_stack **stack, t_stack *top_node,
 void				move_a_to_b(t_stack **a, t_stack **b);
 void				move_b_to_a(t_stack **a, t_stack **b);
 void				min_on_top(t_stack **a);
+void				prep_for_push(t_stack **stack, t_stack *top_node,
+						char stack_name);
 bool				stack_sorted(t_stack *stack);
 
 t_stack				*find_highest(t_stack *stack);

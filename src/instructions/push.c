@@ -12,27 +12,27 @@
 
 #include "../../include/push_swap.h"
 
-static void	push(t_stack **dest, t_stack **src)
+static void	push(t_stack **dst, t_stack **src)
 {
-	t_stack	*node_to_push;
+	t_stack	*push_node;
 
-	if (*src == NULL)
+	if (!*src)
 		return ;
-	node_to_push = *src;
+	push_node = *src;
 	*src = (*src)->next;
 	if (*src)
 		(*src)->prev = NULL;
-	node_to_push->prev = NULL;
-	if (*dest == NULL)
+	push_node->prev = NULL;
+	if (!*dst)
 	{
-		*dest = node_to_push;
-		node_to_push->next = NULL;
+		*dst = push_node;
+		push_node->next = NULL;
 	}
 	else
 	{
-		node_to_push->next = *dest;
-		node_to_push->next->prev = node_to_push;
-		*dest = node_to_push;
+		push_node->next = *dst;
+		push_node->next->prev = push_node;
+		*dst = push_node;
 	}
 }
 
@@ -43,7 +43,7 @@ void	pa(t_stack **a, t_stack **b, bool checker)
 		ft_putendl_fd("pa", 1);
 }
 
-void	pb(t_stack **a, t_stack **b, bool checker)
+void	pb(t_stack **b, t_stack **a, bool checker)
 {
 	push(b, a);
 	if (!checker)

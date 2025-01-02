@@ -14,12 +14,9 @@
 
 t_stack	*find_last_node(t_stack *head)
 {
-	t_stack	*start;
-
 	if (head == NULL)
 		return (NULL);
-	start = head;
-	while (head->next && head->next != start)
+	while (head->next)
 		head = head->next;
 	return (head);
 }

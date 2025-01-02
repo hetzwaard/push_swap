@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   set_b_to_a.c                                       :+:    :+:            */
+/*   init_nodes_b.c                                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: mahkilic <mahkilic@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
@@ -24,8 +24,7 @@ static void	set_target_b(t_stack *a, t_stack *b)
 		current_a = a;
 		while (current_a)
 		{
-			if (current_a->value > b->value
-				&& current_a->value < best_match_index)
+			if (current_a->value > b->value && current_a->value < best_match_index)
 			{
 				best_match_index = current_a->value;
 				target_node = current_a;
@@ -40,7 +39,7 @@ static void	set_target_b(t_stack *a, t_stack *b)
 	}
 }
 
-void	set_b_to_a(t_stack *a, t_stack *b)
+void	init_nodes_b(t_stack *a, t_stack *b)
 {
 	set_current(a);
 	set_current(b);
