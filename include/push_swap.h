@@ -57,7 +57,6 @@ void				set_cheapest(t_stack *b);
 // ALGORITHM & SORING FUNCTIONS
 void				push_swap(t_stack **a, t_stack **b);
 void				tiny_sort(t_stack **a);
-void				handle_five(t_stack **a, t_stack **b);
 void				rotate_both(t_stack **a, t_stack **b,
 						t_stack *cheapest_node);
 void				rrotate_both(t_stack **a, t_stack **b,
