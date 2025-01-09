@@ -33,7 +33,7 @@ void	error_free_stack(t_stack **stack)
 void	error_free(t_stack **a)
 {
 	error_free_stack(a);
-	ft_putendl_fd("Error", 1);
+	ft_putendl_fd("Error", 2);
 	exit(1);
 }
 
