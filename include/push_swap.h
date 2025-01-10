@@ -16,12 +16,16 @@
 # include "../libft/include/libft.h"
 # include <limits.h>
 # include <stdbool.h>
+# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include <stdio.h>
 
 typedef struct s_stack
 {
+	int				*a;
+	int				*b;
+	int				a_size;
+	int				b_size;
 	int				value;
 	int				index;
 	int				push_price;
@@ -56,6 +60,7 @@ void				set_cheapest(t_stack *b);
 
 // ALGORITHM & SORING FUNCTIONS
 void				push_swap(t_stack **a, t_stack **b);
+void				radix_sort(t_stack **a, t_stack **b);
 void				tiny_sort(t_stack **a);
 void				rotate_both(t_stack **a, t_stack **b,
 						t_stack *cheapest_node);

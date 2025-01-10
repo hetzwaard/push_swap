@@ -33,6 +33,7 @@ SRCS =		$(SRCDIR)/main.c \
 			$(ALGDIR)/init_nodes_b.c \
 			$(ALGDIR)/large_sort.c \
 			$(ALGDIR)/tiny_sort.c \
+			$(ALGDIR)/radix_sort.c \
 			$(INSDIR)/push.c \
 			$(INSDIR)/rotate.c \
 			$(INSDIR)/rrotate.c \

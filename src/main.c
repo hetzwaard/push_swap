@@ -31,7 +31,7 @@ int	main(int argc, char **argv)
 		else if (stack_len(a) == 3)
 			tiny_sort(&a);
 		else
-			push_swap(&a, &b);
+			radix_sort(&a, &b);
 	}
 	error_free_stack(&a);
 	return (0);
