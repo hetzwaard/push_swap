@@ -6,7 +6,7 @@
 /*   By: mahkilic <mahkilic@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/12/30 14:16:12 by mahkilic      #+#    #+#                 */
-/*   Updated: 2025/01/02 09:22:38 by mahkilic      ########   odam.nl         */
+/*   Updated: 2025/01/12 00:47:34 by mahkilic      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ int					error_duplicate(t_stack *a, int nbr);
 void				stack_init(t_stack **a, char **argv);
 void				append_node(t_stack **stack, int nbr);
 int					stack_len(t_stack *stack);
+int					get_max_value(t_stack *stack);
 
 t_stack				*find_last_node(t_stack *head);
 t_stack				*find_smallest(t_stack *stack);
@@ -61,7 +62,9 @@ void				set_cheapest(t_stack *b);
 // ALGORITHM & SORING FUNCTIONS
 void				push_swap(t_stack **a, t_stack **b);
 void				radix_sort(t_stack **a, t_stack **b);
+void				index_stack_values(t_stack *stack);
 void				tiny_sort(t_stack **a);
+void				sort_four_to_five_elements(t_stack **a, t_stack **b);
 void				rotate_both(t_stack **a, t_stack **b,
 						t_stack *cheapest_node);
 void				rrotate_both(t_stack **a, t_stack **b,

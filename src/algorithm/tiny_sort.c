@@ -6,16 +6,33 @@
 /*   By: mahkilic <mahkilic@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/12/30 17:34:48 by mahkilic      #+#    #+#                 */
-/*   Updated: 2025/01/02 01:19:57 by mahkilic      ########   odam.nl         */
+/*   Updated: 2025/01/11 23:40:51 by mahkilic      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
+static int	get_index(t_stack *stack, t_stack *node)
+{
+	int	index;
+
+	index = 0;
+	while (stack)
+	{
+		if (stack == node)
+			return (index);
+		stack = stack->next;
+		index++;
+	}
+	return (-1);
+}
+
 void	tiny_sort(t_stack **a)
 {
 	t_stack	*highest_node;
 
+	if (stack_sorted(*a))
+		return ;
 	highest_node = find_highest(*a);
 	if (*a == highest_node)
 		ra(a, false);
@@ -23,4 +40,26 @@ void	tiny_sort(t_stack **a)
 		rra(a, false);
 	if ((*a)->value > (*a)->next->value)
 		sa(a, false);
+}
+
+void	sort_four_to_five_elements(t_stack **a, t_stack **b)
+{
+	t_stack	*smallest;
+	int		idx;
+
+	while (stack_len(*a) > 3)
+	{
+		smallest = find_smallest(*a);
+		idx = get_index(*a, smallest);
+		if (idx <= stack_len(*a) / 2)
+			while (*a != smallest)
+				ra(a, false);
+		else
+			while (*a != smallest)
+				rra(a, false);
+		pb(b, a, false);
+	}
+	tiny_sort(a);
+	while (*b)
+		pa(a, b, false);
 }
