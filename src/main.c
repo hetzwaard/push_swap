@@ -6,7 +6,7 @@
 /*   By: mahkilic <mahkilic@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/12/30 14:19:16 by mahkilic      #+#    #+#                 */
-/*   Updated: 2025/01/12 00:08:48 by mahkilic      ########   odam.nl         */
+/*   Updated: 2025/01/12 22:12:31 by mahkilic      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	main(int argc, char **argv)
 			sa(&a, false);
 		else if (stack_len(a) == 3)
 			tiny_sort(&a);
-		else if (stack_len(a) <= 5)
+		else if (stack_len(a) == 4 || stack_len(a) == 5)
 			sort_four_to_five_elements(&a, &b);
 		else
 			radix_sort(&a, &b);
