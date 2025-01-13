@@ -27,7 +27,7 @@ static int	get_index(t_stack *stack, t_stack *node)
 	return (-1);
 }
 
-void	tiny_sort(t_stack **a)
+void	sort_three(t_stack **a)
 {
 	t_stack	*highest_node;
 
@@ -42,7 +42,7 @@ void	tiny_sort(t_stack **a)
 		sa(a, false);
 }
 
-void	sort_four_to_five_elements(t_stack **a, t_stack **b)
+void	sort_four_to_five(t_stack **a, t_stack **b)
 {
 	t_stack	*smallest;
 	int		index;
@@ -59,7 +59,7 @@ void	sort_four_to_five_elements(t_stack **a, t_stack **b)
 				rra(a, false);
 		pb(b, a, false);
 	}
-	tiny_sort(a);
+	sort_three(a);
 	while (*b)
 		pa(a, b, false);
 }

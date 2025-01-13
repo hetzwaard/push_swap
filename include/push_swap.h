@@ -50,8 +50,8 @@ t_stack				*find_smallest(t_stack *stack);
 // ALGORITHM & SORING FUNCTIONS
 void				radix_sort(t_stack **a, t_stack **b);
 void				index_stack_values(t_stack *stack);
-void				tiny_sort(t_stack **a);
-void				sort_four_to_five_elements(t_stack **a, t_stack **b);
+void				sort_three(t_stack **a);
+void				sort_four_to_five(t_stack **a, t_stack **b);
 
 // INSTUCTIONS
 void				pa(t_stack **a, t_stack **b, bool checker);

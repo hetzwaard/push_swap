@@ -27,17 +27,17 @@ LIBFT = $(LIBFTDIR)/libft.a
 
 # Source files and object files
 SRCS =		$(SRCDIR)/main.c \
-			$(UTLDIR)/error_free.c \
-			$(UTLDIR)/utils.c \
-			$(ALGDIR)/tiny_sort.c \
 			$(ALGDIR)/radix_sort.c \
 			$(ALGDIR)/radix_utils.c \
+			$(ALGDIR)/small_sort.c \
 			$(INSDIR)/push.c \
 			$(INSDIR)/rotate.c \
 			$(INSDIR)/rrotate.c \
 			$(INSDIR)/swap.c \
 			$(STCDIR)/stack_init.c \
-			$(STCDIR)/stack_utils.c
+			$(STCDIR)/stack_utils.c \
+			$(UTLDIR)/error_free.c \
+			$(UTLDIR)/utils.c 
 		 
 OBJS = $(SRCS:%.c=$(OBJDIR)/%.o)
 

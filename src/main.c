@@ -29,9 +29,9 @@ int	main(int argc, char **argv)
 		if (stack_len(a) == 2)
 			sa(&a, false);
 		else if (stack_len(a) == 3)
-			tiny_sort(&a);
+			sort_three(&a);
 		else if (stack_len(a) == 4 || stack_len(a) == 5)
-			sort_four_to_five_elements(&a, &b);
+			sort_four_to_five(&a, &b);
 		else
 			radix_sort(&a, &b);
 	}
