@@ -60,4 +60,3 @@ t_stack	*find_smallest(t_stack *stack)
 	}
 	return (smallest_node);
 }
-

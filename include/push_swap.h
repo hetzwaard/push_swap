@@ -50,7 +50,7 @@ bool				stack_sorted(t_stack *stack);
 
 t_stack				*find_last_node(t_stack *head);
 t_stack				*find_highest(t_stack *stack);
-t_stack				*find_smallest(t_stack *stack);;
+t_stack				*find_smallest(t_stack *stack);
 
 // ALGORITHM & SORING FUNCTIONS
 void				radix_sort(t_stack **a, t_stack **b);
