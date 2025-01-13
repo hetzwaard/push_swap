@@ -64,19 +64,3 @@ int	stack_len(t_stack *stack)
 	}
 	return (count);
 }
-
-int	get_max_value(t_stack *stack)
-{
-	int	max_value;
-
-	if (stack == NULL)
-		return (INT_MIN);
-	max_value = stack->value;
-	while (stack)
-	{
-		if (stack->value > max_value)
-			max_value = stack->value;
-		stack = stack->next;
-	}
-	return (max_value);
-}

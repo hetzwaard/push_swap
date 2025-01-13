@@ -61,15 +61,3 @@ t_stack	*find_smallest(t_stack *stack)
 	return (smallest_node);
 }
 
-t_stack	*return_cheapest(t_stack *stack)
-{
-	if (stack == NULL)
-		return (NULL);
-	while (stack)
-	{
-		if (stack->cheapest)
-			return (stack);
-		stack = stack->next;
-	}
-	return (NULL);
-}

@@ -43,42 +43,20 @@ int					error_syntax(char *str_nbr);
 int					error_duplicate(t_stack *a, int nbr);
 
 // STACK & LINKED_LIST FUNCTIONS
-void				stack_init(t_stack **a, char **argv);
 void				append_node(t_stack **stack, int nbr);
+void				stack_init(t_stack **a, char **argv);
 int					stack_len(t_stack *stack);
-int					get_max_value(t_stack *stack);
+bool				stack_sorted(t_stack *stack);
 
 t_stack				*find_last_node(t_stack *head);
-t_stack				*find_smallest(t_stack *stack);
-t_stack				*return_cheapest(t_stack *stack);
-
-// SET_NODES FUNCTIONS
-void				init_nodes_a(t_stack *a, t_stack *b);
-void				init_nodes_b(t_stack *a, t_stack *b);
-void				set_current(t_stack *stack);
-void				set_price(t_stack *a, t_stack *b);
-void				set_cheapest(t_stack *b);
+t_stack				*find_highest(t_stack *stack);
+t_stack				*find_smallest(t_stack *stack);;
 
 // ALGORITHM & SORING FUNCTIONS
-void				push_swap(t_stack **a, t_stack **b);
 void				radix_sort(t_stack **a, t_stack **b);
 void				index_stack_values(t_stack *stack);
 void				tiny_sort(t_stack **a);
 void				sort_four_to_five_elements(t_stack **a, t_stack **b);
-void				rotate_both(t_stack **a, t_stack **b,
-						t_stack *cheapest_node);
-void				rrotate_both(t_stack **a, t_stack **b,
-						t_stack *cheapest_node);
-void				prep_for_push(t_stack **stack, t_stack *top_node,
-						char stack_name);
-void				move_a_to_b(t_stack **a, t_stack **b);
-void				move_b_to_a(t_stack **a, t_stack **b);
-void				min_on_top(t_stack **a);
-void				prep_for_push(t_stack **stack, t_stack *top_node,
-						char stack_name);
-bool				stack_sorted(t_stack *stack);
-
-t_stack				*find_highest(t_stack *stack);
 
 // INSTUCTIONS
 void				pa(t_stack **a, t_stack **b, bool checker);
