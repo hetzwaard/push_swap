@@ -45,13 +45,13 @@ void	tiny_sort(t_stack **a)
 void	sort_four_to_five_elements(t_stack **a, t_stack **b)
 {
 	t_stack	*smallest;
-	int		idx;
+	int		index;
 
 	while (stack_len(*a) > 3)
 	{
 		smallest = find_smallest(*a);
-		idx = get_index(*a, smallest);
-		if (idx <= stack_len(*a) / 2)
+		index = get_index(*a, smallest);
+		if (index <= stack_len(*a) / 2)
 			while (*a != smallest)
 				ra(a, false);
 		else

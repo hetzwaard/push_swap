@@ -49,15 +49,15 @@ static int	partition(long *arr, int low, int high)
 	return (i);
 }
 
-static void	ft_quicksort_long(long *arr, int low, int high)
+static void	quicksort_long(long *arr, int low, int high)
 {
 	int	index;
 
 	if (low < high)
 	{
 		index = partition(arr, low, high);
-		ft_quicksort_long(arr, low, index - 1);
-		ft_quicksort_long(arr, index, high);
+		quicksort_long(arr, low, index - 1);
+		quicksort_long(arr, index, high);
 	}
 }
 
@@ -85,7 +85,7 @@ void	index_stack_values(t_stack *stack)
 	if (!arr)
 		return ;
 	fill_array_from_stack(stack, arr);
-	ft_quicksort_long(arr, 0, size - 1);
+	quicksort_long(arr, 0, size - 1);
 	assign_ranks_to_stack(stack, arr, size);
 	free(arr);
 }
