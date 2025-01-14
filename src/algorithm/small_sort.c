@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   tiny_sort.c                                        :+:    :+:            */
+/*   small_sort.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: mahkilic <mahkilic@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/12/30 17:34:48 by mahkilic      #+#    #+#                 */
-/*   Updated: 2025/01/11 23:40:51 by mahkilic      ########   odam.nl         */
+/*   Updated: 2025/01/14 21:54:16 by mahkilic      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	sort_four_to_five(t_stack **a, t_stack **b)
 
 	while (stack_len(*a) > 3)
 	{
-		smallest = find_smallest(*a);
+		smallest = find_lowest(*a);
 		index = get_index(*a, smallest);
 		if (index <= stack_len(*a) / 2)
 			while (*a != smallest)

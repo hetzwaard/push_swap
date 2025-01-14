@@ -6,7 +6,7 @@
 /*   By: mahkilic <mahkilic@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/12/30 14:16:12 by mahkilic      #+#    #+#                 */
-/*   Updated: 2025/01/12 00:47:34 by mahkilic      ########   odam.nl         */
+/*   Updated: 2025/01/14 21:54:01 by mahkilic      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,7 @@ typedef struct s_stack
 	struct s_stack	*prev;
 }					t_stack;
 
-// ERROR_FREE
-void				error_free_stack(t_stack **stack);
+// ERROR
 void				error_free(t_stack **a);
 int					error_syntax(char *str_nbr);
 int					error_duplicate(t_stack *a, int nbr);
@@ -40,12 +39,13 @@ int					error_duplicate(t_stack *a, int nbr);
 // STACK & LINKED_LIST FUNCTIONS
 void				append_node(t_stack **stack, int nbr);
 void				stack_init(t_stack **a, char **argv);
+void				stack_free(t_stack **stack);
 int					stack_len(t_stack *stack);
 bool				stack_sorted(t_stack *stack);
 
 t_stack				*find_last_node(t_stack *head);
 t_stack				*find_highest(t_stack *stack);
-t_stack				*find_smallest(t_stack *stack);
+t_stack				*find_lowest(t_stack *stack);
 
 // ALGORITHM & SORING FUNCTIONS
 void				radix_sort(t_stack **a, t_stack **b);

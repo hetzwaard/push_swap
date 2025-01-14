@@ -35,6 +35,6 @@ int	main(int argc, char **argv)
 		else
 			radix_sort(&a, &b);
 	}
-	error_free_stack(&a);
+	stack_free(&a);
 	return (0);
 }

@@ -6,7 +6,7 @@
 #    By: mahkilic <mahkilic@student.42.fr>            +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/12/30 19:03:14 by mahkilic      #+#    #+#                  #
-#    Updated: 2025/01/12 00:45:30 by mahkilic      ########   odam.nl          #
+#    Updated: 2025/01/14 21:49:27 by mahkilic      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,6 @@ SRCDIR = src
 ALGDIR = src/algorithm
 INSDIR = src/instructions
 STCDIR = src/stack
-UTLDIR = src/utils
 OBJDIR = objects
 INCDIR = include
 LIBFTDIR = libft
@@ -30,14 +29,14 @@ SRCS =		$(SRCDIR)/main.c \
 			$(ALGDIR)/radix_sort.c \
 			$(ALGDIR)/radix_utils.c \
 			$(ALGDIR)/small_sort.c \
+			$(ALGDIR)/small_utils.c \
 			$(INSDIR)/push.c \
 			$(INSDIR)/rotate.c \
 			$(INSDIR)/rrotate.c \
 			$(INSDIR)/swap.c \
+			$(STCDIR)/error.c \
 			$(STCDIR)/stack_init.c \
-			$(STCDIR)/stack_utils.c \
-			$(UTLDIR)/error_free.c \
-			$(UTLDIR)/utils.c 
+			$(STCDIR)/stack_utils.c 
 		 
 OBJS = $(SRCS:%.c=$(OBJDIR)/%.o)
 

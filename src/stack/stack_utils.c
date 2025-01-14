@@ -5,58 +5,55 @@
 /*                                                     +:+                    */
 /*   By: mahkilic <mahkilic@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2024/12/30 15:27:48 by mahkilic      #+#    #+#                 */
-/*   Updated: 2025/01/02 09:36:17 by mahkilic      ########   odam.nl         */
+/*   Created: 2025/01/02 01:18:37 by mahkilic      #+#    #+#                 */
+/*   Updated: 2025/01/14 21:50:24 by mahkilic      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/push_swap.h"
+#include "../include/push_swap.h"
 
-t_stack	*find_last_node(t_stack *head)
+void	stack_free(t_stack **stack)
 {
-	if (head == NULL)
-		return (NULL);
-	while (head->next)
-		head = head->next;
-	return (head);
-}
-
-t_stack	*find_highest(t_stack *stack)
-{
-	long	highest;
-	t_stack	*highest_node;
+	t_stack	*tmp;
+	t_stack	*current;
 
 	if (stack == NULL)
-		return (NULL);
-	highest = LONG_MIN;
-	while (stack)
+		return ;
+	current = *stack;
+	while (current)
 	{
-		if (stack->value > highest)
-		{
-			highest = stack->value;
-			highest_node = stack;
-		}
-		stack = stack->next;
+		tmp = current->next;
+		current->value = 0;
+		free(current);
+		current = tmp;
 	}
-	return (highest_node);
+	*stack = NULL;
 }
 
-t_stack	*find_smallest(t_stack *stack)
+int	stack_len(t_stack *stack)
 {
-	long	smallest;
-	t_stack	*smallest_node;
+	int	count;
 
 	if (stack == NULL)
-		return (NULL);
-	smallest = LONG_MAX;
+		return (0);
+	count = 0;
 	while (stack)
 	{
-		if (stack->value < smallest)
-		{
-			smallest = stack->value;
-			smallest_node = stack;
-		}
+		++count;
 		stack = stack->next;
 	}
-	return (smallest_node);
+	return (count);
+}
+
+bool	stack_sorted(t_stack *stack)
+{
+	if (stack == NULL)
+		return (1);
+	while (stack->next)
+	{
+		if (stack->value > stack->next->value)
+			return (false);
+		stack = stack->next;
+	}
+	return (true);
 }

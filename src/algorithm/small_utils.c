@@ -1,17 +1,65 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   utils.c                                            :+:    :+:            */
+/*   small_utils.c                                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: mahkilic <mahkilic@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2025/01/02 01:18:37 by mahkilic      #+#    #+#                 */
-/*   Updated: 2025/01/12 00:27:43 by mahkilic      ########   odam.nl         */
+/*   Created: 2024/12/30 15:27:48 by mahkilic      #+#    #+#                 */
+/*   Updated: 2025/01/14 21:53:53 by mahkilic      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../../include/push_swap.h"
 
+t_stack	*find_last_node(t_stack *head)
+{
+	if (head == NULL)
+		return (NULL);
+	while (head->next)
+		head = head->next;
+	return (head);
+}
+
+t_stack	*find_highest(t_stack *stack)
+{
+	long	highest;
+	t_stack	*highest_node;
+
+	if (stack == NULL)
+		return (NULL);
+	highest = LONG_MIN;
+	while (stack)
+	{
+		if (stack->value > highest)
+		{
+			highest = stack->value;
+			highest_node = stack;
+		}
+		stack = stack->next;
+	}
+	return (highest_node);
+}
+
+t_stack	*find_lowest(t_stack *stack)
+{
+	long	lowest;
+	t_stack	*lowest_node;
+
+	if (stack == NULL)
+		return (NULL);
+	lowest = LONG_MAX;
+	while (stack)
+	{
+		if (stack->value < lowest)
+		{
+			lowest = stack->value;
+			lowest_node = stack;
+		}
+		stack = stack->next;
+	}
+	return (lowest_node);
+}
 void	append_node(t_stack **stack, int nbr)
 {
 	t_stack	*node;
@@ -35,32 +83,4 @@ void	append_node(t_stack **stack, int nbr)
 		last_node->next = node;
 		node->prev = last_node;
 	}
-}
-
-bool	stack_sorted(t_stack *stack)
-{
-	if (stack == NULL)
-		return (1);
-	while (stack->next)
-	{
-		if (stack->value > stack->next->value)
-			return (false);
-		stack = stack->next;
-	}
-	return (true);
-}
-
-int	stack_len(t_stack *stack)
-{
-	int	count;
-
-	if (stack == NULL)
-		return (0);
-	count = 0;
-	while (stack)
-	{
-		++count;
-		stack = stack->next;
-	}
-	return (count);
 }

@@ -1,38 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   error_free.c                                       :+:    :+:            */
+/*   error.c                                            :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: mahkilic <mahkilic@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/12/30 18:20:12 by mahkilic      #+#    #+#                 */
-/*   Updated: 2025/01/02 01:33:19 by mahkilic      ########   odam.nl         */
+/*   Updated: 2025/01/14 21:49:40 by mahkilic      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	error_free_stack(t_stack **stack)
-{
-	t_stack	*tmp;
-	t_stack	*current;
-
-	if (stack == NULL)
-		return ;
-	current = *stack;
-	while (current)
-	{
-		tmp = current->next;
-		current->value = 0;
-		free(current);
-		current = tmp;
-	}
-	*stack = NULL;
-}
-
 void	error_free(t_stack **a)
 {
-	error_free_stack(a);
+	stack_free(a);
 	ft_putendl_fd("Error", 2);
 	exit(1);
 }
