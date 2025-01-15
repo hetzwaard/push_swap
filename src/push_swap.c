@@ -1,15 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.c                                             :+:    :+:            */
-/*
-	+:+                    */
-/*   By: mahkilic <mahkilic@student.42.fr>
-	+#+                     */
-/*
-	+#+                      */
-/*   Created: 2024/12/30 14:19:16 by mahkilic      #+#    #+#                 */
-/*   Updated: 2025/01/12 22:12:31 by mahkilic      ########   odam.nl         */
+/*   push_swap.c                                        :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: mahkilic <mahkilic@student.codam.nl>         +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2025/01/15 14:10:59 by mahkilic      #+#    #+#                 */
+/*   Updated: 2025/01/15 14:10:59 by mahkilic      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +26,9 @@ static void	push_swap(t_stack **a, t_stack **b)
 
 int	main(int argc, char **argv)
 {
-	t_stack	*a;
-	t_stack	*b;
-	char	**params;
+	t_stack *a;
+	t_stack *b;
+	char **params;
 
 	a = NULL;
 	b = NULL;
