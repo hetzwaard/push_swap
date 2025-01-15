@@ -29,18 +29,18 @@ void	sort_three(t_stack **a)
 
 void	sort_four_to_five(t_stack **a, t_stack **b)
 {
-	t_stack	*smallest;
+	t_stack	*lowest;
 	int		index;
 
 	while (stack_len(*a) > 3)
 	{
-		smallest = find_lowest(*a);
-		index = find_index(*a, smallest);
+		lowest = find_lowest(*a);
+		index = find_index(*a, lowest);
 		if (index <= stack_len(*a) / 2)
-			while (*a != smallest)
+			while (*a != lowest)
 				ra(a, false);
 		else
-			while (*a != smallest)
+			while (*a != lowest)
 				rra(a, false);
 		pb(b, a, false);
 	}
