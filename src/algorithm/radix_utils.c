@@ -61,16 +61,16 @@ static void	quicksort_long(long *arr, int low, int high)
 	}
 }
 
-static void	assign_ranks_to_stack(t_stack *stack, long *arr, int size)
+static void	fill_stack_from_array(t_stack *stack, long *arr, int size)
 {
-	int	rank;
+	int	i;
 
 	while (stack)
 	{
-		rank = 0;
-		while (rank < size && arr[rank] != stack->value)
-			rank++;
-		stack->value = rank;
+		i = 0;
+		while (i < size && arr[i] != stack->value)
+			i++;
+		stack->value = i;
 		stack = stack->next;
 	}
 }
@@ -86,6 +86,6 @@ void	index_stack_values(t_stack *stack)
 		return ;
 	fill_array_from_stack(stack, arr);
 	quicksort_long(arr, 0, size - 1);
-	assign_ranks_to_stack(stack, arr, size);
+	fill_stack_from_array(stack, arr, size);
 	free(arr);
 }
