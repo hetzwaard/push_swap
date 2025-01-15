@@ -12,20 +12,6 @@
 
 #include "../../include/push_swap.h"
 
-static void	move_stack_b(t_stack **a, t_stack **b, int bit_size, int j)
-{
-	int	b_size;
-
-	b_size = stack_len(*b);
-	while (b_size-- && j <= bit_size && !stack_sorted(*a))
-	{
-		if (((*b)->value >> j) & 1)
-			pa(a, b, false);
-		else
-			rb(b, false);
-	}
-}
-
 static void	move_stack_a(t_stack **a, t_stack **b, int j)
 {
 	int	size;
@@ -37,6 +23,20 @@ static void	move_stack_a(t_stack **a, t_stack **b, int j)
 			ra(a, false);
 		else
 			pb(b, a, false);
+	}
+}
+
+static void	move_stack_b(t_stack **a, t_stack **b, int bit_size, int j)
+{
+	int	b_size;
+
+	b_size = stack_len(*b);
+	while (b_size-- && j <= bit_size && !stack_sorted(*a))
+	{
+		if (((*b)->value >> j) & 1)
+			pa(a, b, false);
+		else
+			rb(b, false);
 	}
 }
 
