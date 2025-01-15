@@ -26,9 +26,8 @@ static void	push_swap(t_stack **a, t_stack **b)
 
 int	main(int argc, char **argv)
 {
-	t_stack *a;
-	t_stack *b;
-	char **params;
+	t_stack	*a;
+	t_stack	*b;
 
 	a = NULL;
 	b = NULL;
@@ -36,13 +35,9 @@ int	main(int argc, char **argv)
 		return (1);
 	else if (argc == 2)
 	{
-		params = ft_ps_split(argv[1], ' ');
-		if (!params)
-			return (free(params), 1);
-		stack_init(&a, params);
-	}
-	else
+		argv = ft_ps_split(argv[1], ' ');
 		stack_init(&a, argv + 1);
+	}
 	if (!stack_sorted(a))
 		push_swap(&a, &b);
 	stack_free(&a);
