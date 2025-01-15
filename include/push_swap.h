@@ -6,7 +6,7 @@
 /*   By: mahkilic <mahkilic@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/12/30 14:16:12 by mahkilic      #+#    #+#                 */
-/*   Updated: 2025/01/15 10:20:18 by mahkilic      ########   odam.nl         */
+/*   Updated: 2025/01/15 10:36:06 by mahkilic      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,23 +36,24 @@ void				error_free(t_stack **a);
 int					error_syntax(char *str_nbr);
 int					error_duplicate(t_stack *a, int nbr);
 
-// STACK & LINKED_LIST FUNCTIONS
-void				append_node(t_stack **stack, int nbr);
+// STACK
 void				stack_init(t_stack **a, char **argv);
 void				stack_free(t_stack **stack);
 int					stack_len(t_stack *stack);
 bool				stack_sorted(t_stack *stack);
 
+// SMALL SORT & SMALL UTILS
+
+void				sort_three(t_stack **a);
+void				sort_four_to_five(t_stack **a, t_stack **b);
+int					find_index(t_stack *stack, t_stack *node);
 t_stack				*find_last_node(t_stack *head);
 t_stack				*find_highest(t_stack *stack);
 t_stack				*find_lowest(t_stack *stack);
-int					find_index(t_stack *stack, t_stack *node);
 
-// ALGORITHM & SORING FUNCTIONS
+// RADIX SORT & RADIX UTILS
 void				radix_sort(t_stack **a, t_stack **b);
 void				index_stack_values(t_stack *stack);
-void				sort_three(t_stack **a);
-void				sort_four_to_five(t_stack **a, t_stack **b);
 
 // INSTUCTIONS
 void				pa(t_stack **a, t_stack **b, bool checker);

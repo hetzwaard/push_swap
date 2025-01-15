@@ -6,11 +6,36 @@
 /*   By: mahkilic <mahkilic@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/12/30 14:38:46 by mahkilic      #+#    #+#                 */
-/*   Updated: 2025/01/02 00:50:01 by mahkilic      ########   odam.nl         */
+/*   Updated: 2025/01/15 10:34:21 by mahkilic      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
+
+static void	append_node(t_stack **stack, int nbr)
+{
+	t_stack	*node;
+	t_stack	*last_node;
+
+	if (stack == NULL)
+		return ;
+	node = malloc(sizeof(t_stack));
+	if (node == NULL)
+		return ;
+	node->next = NULL;
+	node->value = nbr;
+	if (*stack == NULL)
+	{
+		*stack = node;
+		node->prev = NULL;
+	}
+	else
+	{
+		last_node = find_last_node(*stack);
+		last_node->next = node;
+		node->prev = last_node;
+	}
+}
 
 void	stack_init(t_stack **a, char **argv)
 {

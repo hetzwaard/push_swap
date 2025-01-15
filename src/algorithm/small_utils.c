@@ -6,7 +6,7 @@
 /*   By: mahkilic <mahkilic@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/12/30 15:27:48 by mahkilic      #+#    #+#                 */
-/*   Updated: 2025/01/15 10:20:06 by mahkilic      ########   odam.nl         */
+/*   Updated: 2025/01/15 10:34:10 by mahkilic      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,29 +74,4 @@ int	find_index(t_stack *stack, t_stack *node)
 		index++;
 	}
 	return (-1);
-}
-
-void	append_node(t_stack **stack, int nbr)
-{
-	t_stack	*node;
-	t_stack	*last_node;
-
-	if (stack == NULL)
-		return ;
-	node = malloc(sizeof(t_stack));
-	if (node == NULL)
-		return ;
-	node->next = NULL;
-	node->value = nbr;
-	if (*stack == NULL)
-	{
-		*stack = node;
-		node->prev = NULL;
-	}
-	else
-	{
-		last_node = find_last_node(*stack);
-		last_node->next = node;
-		node->prev = last_node;
-	}
 }
