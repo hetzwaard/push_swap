@@ -25,7 +25,7 @@ LIBFTDIR = libft
 LIBFT = $(LIBFTDIR)/libft.a
 
 # Source files and object files
-SRCS =		$(SRCDIR)/main.c \
+SRCS =		$(SRCDIR)/push_swap.c \
 			$(ALGDIR)/radix_sort.c \
 			$(ALGDIR)/radix_utils.c \
 			$(ALGDIR)/small_sort.c \
