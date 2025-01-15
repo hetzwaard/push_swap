@@ -6,7 +6,7 @@
 #    By: mahkilic <mahkilic@student.42.fr>            +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/12/30 19:03:14 by mahkilic      #+#    #+#                  #
-#    Updated: 2025/01/14 21:49:27 by mahkilic      ########   odam.nl          #
+#    Updated: 2025/01/15 21:36:04 by mahkilic      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,6 @@ SRCS =		$(SRCDIR)/push_swap.c \
 			$(INSDIR)/rotate.c \
 			$(INSDIR)/rrotate.c \
 			$(INSDIR)/swap.c \
-			$(STCDIR)/error.c \
 			$(STCDIR)/stack_init.c \
 			$(STCDIR)/stack_utils.c 
 		 

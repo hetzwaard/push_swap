@@ -6,7 +6,7 @@
 /*   By: mahkilic <mahkilic@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/12/30 14:16:12 by mahkilic      #+#    #+#                 */
-/*   Updated: 2025/01/15 10:36:06 by mahkilic      ########   odam.nl         */
+/*   Updated: 2025/01/15 21:35:39 by mahkilic      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,6 @@ typedef struct s_stack
 	struct s_stack	*next;
 	struct s_stack	*prev;
 }					t_stack;
-
-// ERROR
-void				error_free(t_stack **a);
-int					error_syntax(char *str_nbr);
-int					error_duplicate(t_stack *a, int nbr);
 
 // STACK
 void				stack_init(t_stack **a, char **argv);
