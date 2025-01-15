@@ -28,6 +28,7 @@ int	main(int argc, char **argv)
 {
 	t_stack	*a;
 	t_stack	*b;
+	char	**arr;
 
 	a = NULL;
 	b = NULL;
@@ -35,8 +36,9 @@ int	main(int argc, char **argv)
 		return (1);
 	else if (argc == 2 && argv[1][0])
 	{
-		argv = ft_ps_split(argv[1], ' ');
-		stack_init(&a, argv + 1);
+		arr = ft_ps_split(argv[1], ' ');
+		stack_init(&a, arr + 1);
+		ft_free_arr(arr);
 	}
 	else
 		stack_init(&a, argv + 1);
