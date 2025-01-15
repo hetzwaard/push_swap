@@ -6,26 +6,11 @@
 /*   By: mahkilic <mahkilic@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/12/30 17:34:48 by mahkilic      #+#    #+#                 */
-/*   Updated: 2025/01/14 21:54:16 by mahkilic      ########   odam.nl         */
+/*   Updated: 2025/01/15 10:21:06 by mahkilic      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
-
-static int	get_index(t_stack *stack, t_stack *node)
-{
-	int	index;
-
-	index = 0;
-	while (stack)
-	{
-		if (stack == node)
-			return (index);
-		stack = stack->next;
-		index++;
-	}
-	return (-1);
-}
 
 void	sort_three(t_stack **a)
 {
@@ -50,7 +35,7 @@ void	sort_four_to_five(t_stack **a, t_stack **b)
 	while (stack_len(*a) > 3)
 	{
 		smallest = find_lowest(*a);
-		index = get_index(*a, smallest);
+		index = find_index(*a, smallest);
 		if (index <= stack_len(*a) / 2)
 			while (*a != smallest)
 				ra(a, false);

@@ -6,7 +6,7 @@
 /*   By: mahkilic <mahkilic@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/12/30 14:16:12 by mahkilic      #+#    #+#                 */
-/*   Updated: 2025/01/14 21:54:01 by mahkilic      ########   odam.nl         */
+/*   Updated: 2025/01/15 10:20:18 by mahkilic      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ bool				stack_sorted(t_stack *stack);
 t_stack				*find_last_node(t_stack *head);
 t_stack				*find_highest(t_stack *stack);
 t_stack				*find_lowest(t_stack *stack);
+int					find_index(t_stack *stack, t_stack *node);
 
 // ALGORITHM & SORING FUNCTIONS
 void				radix_sort(t_stack **a, t_stack **b);

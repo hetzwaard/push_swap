@@ -6,7 +6,7 @@
 /*   By: mahkilic <mahkilic@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/12/30 15:27:48 by mahkilic      #+#    #+#                 */
-/*   Updated: 2025/01/14 21:53:53 by mahkilic      ########   odam.nl         */
+/*   Updated: 2025/01/15 10:20:06 by mahkilic      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,22 @@ t_stack	*find_lowest(t_stack *stack)
 	}
 	return (lowest_node);
 }
+
+int	find_index(t_stack *stack, t_stack *node)
+{
+	int	index;
+
+	index = 0;
+	while (stack)
+	{
+		if (stack == node)
+			return (index);
+		stack = stack->next;
+		index++;
+	}
+	return (-1);
+}
+
 void	append_node(t_stack **stack, int nbr)
 {
 	t_stack	*node;
