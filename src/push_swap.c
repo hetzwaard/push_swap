@@ -36,7 +36,7 @@ int	main(int argc, char **argv)
 		return (1);
 	else if (argc == 2 && argv[1][0])
 	{
-		arr = ft_ps_split(argv[1], ' ');
+		arr = ft_split_ps(argv[1], ' ');
 		if (!arr)
 			return (free(arr), 1);
 		stack_init(&a, arr + 1);
