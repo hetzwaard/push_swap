@@ -57,3 +57,12 @@ bool	stack_sorted(t_stack *stack)
 	}
 	return (true);
 }
+
+t_stack	*find_last_node(t_stack *head)
+{
+	if (head == NULL)
+		return (NULL);
+	while (head->next)
+		head = head->next;
+	return (head);
+}

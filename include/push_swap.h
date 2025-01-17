@@ -31,24 +31,18 @@ typedef struct s_stack
 	struct s_stack	*prev;
 }					t_stack;
 
-// STACK
+// STACK & UTILS
 void				stack_init(t_stack **a, char **argv);
 void				stack_free(t_stack **stack);
 int					stack_len(t_stack *stack);
 bool				stack_sorted(t_stack *stack);
+t_stack				*find_last_node(t_stack *head);
 
-// SMALL SORT & SMALL UTILS
+// SORTING
 
+void				radix_sort(t_stack **a, t_stack **b);
 void				sort_three(t_stack **a);
 void				sort_four_to_five(t_stack **a, t_stack **b);
-int					find_index(t_stack *stack, t_stack *node);
-t_stack				*find_last_node(t_stack *head);
-t_stack				*find_highest(t_stack *stack);
-t_stack				*find_lowest(t_stack *stack);
-
-// RADIX SORT & RADIX UTILS
-void				radix_sort(t_stack **a, t_stack **b);
-void				index_stack_values(t_stack *stack);
 
 // INSTUCTIONS
 void				pa(t_stack **a, t_stack **b, bool checker);

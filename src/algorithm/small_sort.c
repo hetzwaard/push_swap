@@ -12,6 +12,61 @@
 
 #include "../../include/push_swap.h"
 
+static t_stack	*find_highest(t_stack *stack)
+{
+	long	highest;
+	t_stack	*highest_node;
+
+	if (stack == NULL)
+		return (NULL);
+	highest = LONG_MIN;
+	while (stack)
+	{
+		if (stack->value > highest)
+		{
+			highest = stack->value;
+			highest_node = stack;
+		}
+		stack = stack->next;
+	}
+	return (highest_node);
+}
+
+static t_stack	*find_lowest(t_stack *stack)
+{
+	long	lowest;
+	t_stack	*lowest_node;
+
+	if (stack == NULL)
+		return (NULL);
+	lowest = LONG_MAX;
+	while (stack)
+	{
+		if (stack->value < lowest)
+		{
+			lowest = stack->value;
+			lowest_node = stack;
+		}
+		stack = stack->next;
+	}
+	return (lowest_node);
+}
+
+static int	find_index(t_stack *stack, t_stack *node)
+{
+	int	index;
+
+	index = 0;
+	while (stack)
+	{
+		if (stack == node)
+			return (index);
+		stack = stack->next;
+		index++;
+	}
+	return (-1);
+}
+
 void	sort_three(t_stack **a)
 {
 	t_stack	*highest_node;
