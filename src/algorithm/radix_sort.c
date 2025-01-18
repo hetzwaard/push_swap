@@ -6,11 +6,47 @@
 /*   By: mahkilic <mahkilic@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/10 19:55:18 by mahkilic      #+#    #+#                 */
-/*   Updated: 2025/01/12 00:50:01 by mahkilic      ########   odam.nl         */
+/*   Updated: 2025/01/17 20:06:19 by mahkilic      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
+
+static void	quicksort(long *arr, int low, int high)
+{
+	int		i;
+	int		j;
+	int		pivot;
+
+	if (low >= high)
+		return ;
+	pivot = arr[(low + high) / 2];
+	i = low;
+	j = high;
+	while (i <= j)
+	{
+		while (arr[i] < pivot)
+			i++;
+		while (arr[j] > pivot)
+			j--;
+		if (i <= j)
+			ft_swap_long(&arr[i++], &arr[j--]);
+	}
+	quicksort(arr, low, j);
+	quicksort(arr, i, high);
+}
+
+static void	fill_array(t_stack *stack, long *arr)
+{
+	int	i;
+
+	i = 0;
+	while (stack)
+	{
+		arr[i++] = stack->value;
+		stack = stack->next;
+	}
+}
 
 static void	index_stack(t_stack *stack)
 {
@@ -33,47 +69,6 @@ static void	index_stack(t_stack *stack)
 		stack = stack->next;
 	}
 	free(arr);
-}
-
-static void	fill_array(t_stack *stack, long *arr)
-{
-	int	i;
-
-	i = 0;
-	while (stack)
-	{
-		arr[i++] = stack->value;
-		stack = stack->next;
-	}
-}
-
-static void	quicksort(long *arr, int low, int high)
-{
-	int		i;
-	int		j;
-	int		pivot;
-	long	temp;
-
-	if (low >= high)
-		return ;
-	pivot = arr[(low + high) / 2];
-	i = low;
-	j = high;
-	while (i <= j)
-	{
-		while (arr[i] < pivot)
-			i++;
-		while (arr[j] > pivot)
-			j--;
-		if (i <= j)
-		{
-			temp = arr[i];
-			arr[i++] = arr[j];
-			arr[j--] = temp;
-		}
-	}
-	quicksort(arr, low, j);
-	quicksort(arr, i, high);
 }
 
 static void	radix_sort_step(t_stack **a, t_stack **b, int bit)
