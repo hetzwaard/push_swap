@@ -22,20 +22,17 @@
 
 typedef struct s_stack
 {
-	int				*a;
-	int				*b;
-	int				a_size;
-	int				b_size;
 	int				value;
 	struct s_stack	*next;
 	struct s_stack	*prev;
 }					t_stack;
 
 // STACK & UTILS
-void				stack_init(t_stack **a, char **argv);
+int					stack_init(t_stack **a, char **argv);
 void				stack_free(t_stack **stack);
 int					stack_len(t_stack *stack);
 bool				stack_sorted(t_stack *stack);
+void				error_free(t_stack **a, char **arr);
 t_stack				*find_last_node(t_stack *head);
 
 // SORTING

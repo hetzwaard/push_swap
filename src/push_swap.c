@@ -5,8 +5,8 @@
 /*                                                     +:+                    */
 /*   By: mahkilic <mahkilic@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2025/01/15 14:10:59 by mahkilic      #+#    #+#                 */
-/*   Updated: 2025/01/15 14:10:59 by mahkilic      ########   odam.nl         */
+/*   Created: 2025/01/20 14:00:51 by mahkilic      #+#    #+#                 */
+/*   Updated: 2025/01/20 14:00:51 by mahkilic      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,23 +29,28 @@ int	main(int argc, char **argv)
 	t_stack	*a;
 	t_stack	*b;
 	char	**arr;
+	int		ret;
 
 	a = NULL;
 	b = NULL;
+	arr = NULL;
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
 		return (1);
 	else if (argc == 2 && argv[1][0])
 	{
 		arr = ft_split_ps(argv[1], ' ');
 		if (!arr)
-			return (free(arr), 1);
-		stack_init(&a, arr + 1);
-		ft_free_arr(arr);
-	}
+			ft_free_arr(arr);
+		ret = stack_init(&a, arr + 1);
+	} 
 	else
-		stack_init(&a, argv + 1);
-	if (!stack_sorted(a))
+		ret = stack_init(&a, argv + 1);
+	if (ret == 1)
+		error_free(&a, arr);
+	if (!stack_sorted(a) && ret == 0)
 		push_swap(&a, &b);
 	stack_free(&a);
+	if (arr && argc == 2 && argv[1][0])
+		ft_free_arr(arr);
 	return (0);
 }
