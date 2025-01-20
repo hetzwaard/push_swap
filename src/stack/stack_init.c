@@ -14,8 +14,9 @@
 
 void	error_free(t_stack **a, char **arr)
 {
+	if (a == NULL)
+		ft_free_arr(arr);
 	stack_free(a);
-	ft_free_arr(arr);
 	ft_putendl_fd("Error", 2);
 	exit(1);
 }

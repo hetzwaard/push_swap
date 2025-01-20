@@ -34,23 +34,23 @@ int	main(int argc, char **argv)
 	a = NULL;
 	b = NULL;
 	arr = NULL;
-	if (argc == 1 || (argc == 2 && !argv[1][0]))
+	ret = 0;
+	if (argc == 1)
 		return (1);
+	else if ((argc == 2 && !argv[1][0]) || (argc == 2 && (argv[1][0]) == ' '))
+		error_free(&a, argv);
 	else if (argc == 2 && argv[1][0])
 	{
 		arr = ft_split_ps(argv[1], ' ');
-		if (!arr)
-			ft_free_arr(arr);
 		ret = stack_init(&a, arr + 1);
+		ft_free_arr(arr);
 	} 
 	else
 		ret = stack_init(&a, argv + 1);
 	if (ret == 1)
-		error_free(&a, arr);
+		error_free(&a, argv);
 	if (!stack_sorted(a) && ret == 0)
 		push_swap(&a, &b);
 	stack_free(&a);
-	if (arr && argc == 2 && argv[1][0])
-		ft_free_arr(arr);
 	return (0);
 }
