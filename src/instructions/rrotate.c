@@ -6,7 +6,7 @@
 /*   By: mahkilic <mahkilic@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/12/30 15:52:34 by mahkilic      #+#    #+#                 */
-/*   Updated: 2024/12/30 15:57:25 by mahkilic      ########   odam.nl         */
+/*   Updated: 2025/01/20 22:45:24 by mahkilic      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	rrotate(t_stack **stack)
 
 	if (*stack == NULL || stack == NULL)
 		return ;
-	last_node = find_last_node(*stack);
+	last_node = stack_last_node(*stack);
 	last_node->prev->next = NULL;
 	last_node->next = *stack;
 	last_node->prev = NULL;

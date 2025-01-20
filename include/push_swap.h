@@ -6,7 +6,7 @@
 /*   By: mahkilic <mahkilic@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/12/30 14:16:12 by mahkilic      #+#    #+#                 */
-/*   Updated: 2025/01/15 21:35:39 by mahkilic      ########   odam.nl         */
+/*   Updated: 2025/01/20 22:53:30 by mahkilic      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,12 @@ typedef struct s_stack
 }					t_stack;
 
 // STACK & UTILS
-int					stack_init(t_stack **a, char **argv);
-void				stack_free(t_stack **stack);
+int					stack_init(int argc, char **argv, t_stack **a);
 int					stack_len(t_stack *stack);
+void				stack_free(t_stack **stack);
+void				stack_error(t_stack **a, char **arr);
 bool				stack_sorted(t_stack *stack);
-
-int					parser(int argc, char **argv, t_stack **a);
-void				error_free(t_stack **a, char **arr);
-t_stack				*find_last_node(t_stack *head);
+t_stack				*stack_last_node(t_stack *head);
 
 // SORTING
 

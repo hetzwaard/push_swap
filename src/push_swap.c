@@ -31,7 +31,7 @@ int	main(int argc, char **argv)
 
 	a = NULL;
 	b = NULL;
-	parser(argc, argv, &a);
+	stack_init(argc, argv, &a);
 	if (!stack_sorted(a))
 		push_swap(&a, &b);
 	stack_free(&a);
