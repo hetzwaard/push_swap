@@ -32,6 +32,8 @@ int					stack_init(t_stack **a, char **argv);
 void				stack_free(t_stack **stack);
 int					stack_len(t_stack *stack);
 bool				stack_sorted(t_stack *stack);
+
+int					parser(int argc, char **argv, t_stack **a);
 void				error_free(t_stack **a, char **arr);
 t_stack				*find_last_node(t_stack *head);
 
