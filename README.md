@@ -79,28 +79,18 @@ Explanation:
 
 ---
 
-## Project Structure
-- `push_swap.c`: Main file containing the program logic.
-- `radix_sort.c`: Implementation of the Radix Sort algorithm.
-- `small_sort.c`: Functions for sorting small numbers of elements.
-- `stack_init.c`: Helper functions (e.g., error handling, parsing, indexing).
-- `Makefile`: Build configuration.
-
----
-
 ## Testing
 You can test the program with random integers using this command:
 ```bash
-ARG="$(seq -100 100 | shuf | head -n 10)"; ./push_swap $ARG
+RESULT=$(./push_swap $(seq -10000 10000 | shuf -n 100) | wc -l); echo "$RESULT";
 ```
-This will generate a random set of 10 numbers between -100 and 100, then sort them.
+This will generate a random set of 100 numbers between -10000 and 10000, then sort them.
 
 ---
 
 ## Notes
 - The program is designed to handle valid input only. Ensure all inputs are integers without duplicates.
 - The `stack_init` function performs input validation and error handling.
-- The Radix Sort algorithm ensures efficient sorting for larger stacks, while smaller inputs are handled using optimized auxiliary functions.
 
 ---
 
