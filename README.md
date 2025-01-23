@@ -1,9 +1,9 @@
 # push_swap
 
 ## Overview
-The **push_swap** project is a sorting algorithm, designed to sort a stack of integers using two stacks `a` and `b` with a set of specific operations. The goal is to sort the stack `a` in ascending order using the fewest possible moves.
+The **push_swap** project is about sorting a stack of integers using two stacks: `a` and `b`, and a set of specific operations. The goal is to sort the stack `a` in ascending order using the fewest possible moves.
 
-In this project, I implemented the **Radix Sort** algorithm as the primary sorting method, alongside auxiliary functions to handle small input sizes.
+In this project, I implemented the **Radix Sort** algorithm as the primary sorting method, along with some additional functions to handle smaller input sizes.
 
 ---
 
