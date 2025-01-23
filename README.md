@@ -14,7 +14,7 @@ In this project, I implemented the **Radix Sort** algorithm as the primary sorti
   - `pa`, `pb`: Push the top element from one stack to another.
   - `ra`, `rb`, `rr`: Rotate a stack upwards.
   - `rra`, `rrb`, `rrr`: Rotate a stack downwards.
-- **Auxiliary Sorting Functions:**
+- **Extra Sorting Functions:**
   - `sort_three`: Optimized sorting for three elements.
   - `sort_four_to_five`: Handles cases with four or five elements efficiently.
 - Handles edge cases such as duplicate values, invalid input, and small input sizes.
