@@ -82,9 +82,8 @@ Explanation:
 ## Project Structure
 - `push_swap.c`: Main file containing the program logic.
 - `radix_sort.c`: Implementation of the Radix Sort algorithm.
-- `stack_operations.c`: Functions to handle stack operations.
-- `sort_helpers.c`: Functions for sorting small numbers of elements.
-- `utils.c`: Helper functions (e.g., error handling, parsing, indexing).
+- `small_sort.c`: Functions for sorting small numbers of elements.
+- `stack_init.c`: Helper functions (e.g., error handling, parsing, indexing).
 - `Makefile`: Build configuration.
 
 ---
