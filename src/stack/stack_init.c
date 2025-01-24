@@ -96,7 +96,7 @@ int	stack_init(int argc, char **argv, t_stack **a)
 	ret = 0;
 	if (argc == 1)
 		return (1);
-	else if ((argc == 2 && !argv[1][0]) || (argc == 2 && (argv[1][0]) == ' '))
+	else if ((argc == 2 && !argv[1][0]))
 		stack_error(a, argv);
 	else if (argc == 2 && argv[1][0])
 	{
