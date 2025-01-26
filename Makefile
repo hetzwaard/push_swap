@@ -6,7 +6,7 @@
 #    By: mahkilic <mahkilic@student.42.fr>            +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/12/30 19:03:14 by mahkilic      #+#    #+#                  #
-#    Updated: 2025/01/15 21:36:04 by mahkilic      ########   odam.nl          #
+#    Updated: 2025/01/26 07:50:07 by mahkilic      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,26 +40,36 @@ OBJS = $(SRCS:%.c=$(OBJDIR)/%.o)
 # Output executable
 NAME = push_swap
 
+# Colors for output
+GREEN		=	\033[0;32m
+ORANGE	=	\033[38;5;214m
+GRAY		=	\033[0;90m
+
 # Rules
 all: $(LIBFT) $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -I$(INCDIR) -L$(LIBFTDIR) -lft -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJS) -I$(INCDIR) -L$(LIBFTDIR) -lft -o $(NAME)
+	@echo "$(GREEN)$(NAME) has been created."
 
 $(OBJDIR)/%.o: %.c
-	mkdir -p $(dir $@)
-	$(CC) $(CFLAGS) -I$(INCDIR) -I$(LIBFTDIR) -c $< -o $@
+	@mkdir -p $(dir $@)
+	@$(CC) $(CFLAGS) -I$(INCDIR) -I$(LIBFTDIR) -c $< -o $@
+	@echo "$(GRAY)Compiled: $<"
 
 $(LIBFT):
-	make -C $(LIBFTDIR)
+	@make -C $(LIBFTDIR)
+	@echo "$(GREEN)Libft has been created."
 
 clean:
-	rm -rf $(OBJDIR)
-	make -C $(LIBFTDIR) clean
+	@rm -rf $(OBJDIR)
+	@make -C $(LIBFTDIR) clean
+	@echo "$(ORANGE)Objects have been removed."
 
 fclean: clean
-	rm -f $(NAME)
-	make -C $(LIBFTDIR) fclean
+	@rm -f $(NAME)
+	@make -C $(LIBFTDIR) fclean
+	@echo "$(ORANGE)$(NAME) has been removed."
 
 re: fclean all
 
